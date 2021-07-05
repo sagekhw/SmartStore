@@ -1,10 +1,7 @@
 package store.test.entity;
 
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,6 +9,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Data
+@Setter
+@Getter
 @Entity
 public class Member {
 
@@ -27,4 +26,6 @@ public class Member {
     @Column(name = "mobile_phone_number", nullable = false, unique=true)
     private Long mobilePhoneNumber;
 
+    @ManyToOne
+    private Company company;
 }

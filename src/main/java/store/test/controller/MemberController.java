@@ -1,14 +1,12 @@
 package store.test.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import store.test.entity.Member;
 import store.test.service.MemberService;
 
 import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
@@ -30,5 +28,10 @@ public class MemberController {
     @PostMapping("/findAll")
     public List<Member> members(){
         return memberService.findAll();
+    }
+
+    @PostMapping("/insertCompanyInfo")
+    public String insertCompanyInMemberInfo(@RequestBody Map<String,String> param){
+        return memberService.insertCompanyInMemberInfo(param.get("companyName"), param.get("memberEmail"));
     }
 }
