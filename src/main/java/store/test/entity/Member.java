@@ -1,6 +1,6 @@
 package store.test.entity;
 
-import com.sun.istack.NotNull;
+
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,8 +9,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Data
-@Setter
-@Getter
 @Entity
 public class Member {
 
